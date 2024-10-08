@@ -3,18 +3,18 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { KafkaModule } from './kafka/kafka.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { TelemetryData } from './kafka/kafka.entity';
+import { TelemetryTesla } from './kafka/kafka.entity';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
     type: 'mysql',
-    host: 'localhost',
+    host: '54.161.235.213',
     port: 3306,
-    username: 'root',
+    username: 'tesla',
     password: 'Admin123!!@@##',
     database: 'tesla_telemetry',
-    entities: [TelemetryData],
+    entities: [TelemetryTesla],
     synchronize: true,
   }),
   KafkaModule,

@@ -1,19 +1,19 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity() // Name of the table in MySQL
-export class TelemetryData {
+export class TelemetryTesla {
   @PrimaryGeneratedColumn() // Auto-incrementing primary key
   id: number;
 
-  @Column() // Define a column for sensor ID
-  location: string;
+  @Column({ nullable: true }) // Define a column for latitude that can be null
+  location_latitude: string | null; // Specify that it can be null
+  
+  @Column({ nullable: true }) // Define a column for longitude that can be null
+  location_longitude: string | null; // Specify that it can be null
 
-  @Column() // Define a column for the value
-  charging: string;
-
-  @Column() // Define a column for the value
-  soc: string;
-
-  @Column() // Define a column for the timestamp
-  timestamp: Date;
+  @Column({ nullable: true }) // Define a column for charge state that can be null
+  charge_state: string | null; // Specify that it can be null
+  
+  @Column() // Explicitly define column type for createdAt
+  createdAt: Date;
 }
